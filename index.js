@@ -102,17 +102,16 @@ function receivedMessage(event) {
 
 	if (messageText) {
 		// If we receive a text message, check to see if it matches a keyword
-		// and send back an answer. Otherwise, ask the question again.
-		if (messageText.toLowerCase().includes("magicball") ||
-		messageText.toLowerCase().includes("magic ball")){
-			engaged = true;
-			sendTextMessage(senderID, "Yes?");
-		} else if (engaged && messageText.toLowerCase().includes("?")) {
-			engaged = false;
-			sendAnswer(senderID);
-		} else if (engaged){
-			sendTextMessage(senderID, "Could you repeat your question again?");
-		}
+        // and send back an answer. Otherwise, ask the question again.
+        if (messageText.toLowerCase().replace(/\s+/g, '')includes("magicball")){
+        	engaged = true; // Start accepting questions
+        	sendTextMessage(senderID, "Yes?");
+      	} else if (engaged && messageText.toLowerCase().includes("?")) {
+        	engaged = false;  // Once question is answered - set to false again
+        	sendAnswer(senderID);
+      	} else if (engaged){
+        	sendTextMessage(senderID, "Could you repeat your question again?");
+      	}
 	} else if (messageAttachments) {
 			sendTextMessage(senderID, "Message with attachment received");
 	}
