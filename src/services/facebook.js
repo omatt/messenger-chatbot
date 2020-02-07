@@ -30,7 +30,7 @@ export const receivedMessage = (event) => {
   var timeOfMessage = event.timestamp;
   var message = event.message;
 
-  console.log("Received message for user %d and page %d at %d with message:",
+  console.log('Received message for user %d and page %d at %d with message:',
   senderID, recipientID, timeOfMessage);
   console.log(JSON.stringify(message));
 
@@ -42,16 +42,16 @@ export const receivedMessage = (event) => {
   if (messageText) {
     // If we receive a text message, check to see if it matches a keyword
     // and send back an answer. Otherwise, ask the question again.
-    if (messageText.toLowerCase().replace(/\s+/g, '').includes("magicball")){
+    if (messageText.toLowerCase().replace(/\s+/g, '').includes('magicball')){
       engaged = true; // Start accepting questions
-      sendTextMessage(senderID, "Yes?");
-    } else if (engaged && messageText.toLowerCase().includes("?")) {
+      sendTextMessage(senderID, 'Yes?');
+    } else if (engaged && messageText.toLowerCase().includes('?')) {
       engaged = false;  // Once question is answered - set to false again
       sendAnswer(senderID);
     } else if (engaged) {
-      sendTextMessage(senderID, "Could you repeat your question again?");
+      sendTextMessage(senderID, 'Could you repeat your question again?');
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+    sendTextMessage(senderID, 'Message with attachment received');
   }
 }
