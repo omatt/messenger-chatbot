@@ -9,7 +9,7 @@ var firebase = admin.initializeApp({
 
 
 export const firelord = {
-    DB: firebase.database(),
-    REF: firebase.database().ref(),
-    AUTH: firebase.auth()
+  db: firebase.database(),
+  ref: firebase.database().ref(),
+  auth: firebase.auth()
 }
