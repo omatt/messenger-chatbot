@@ -1,3 +1,12 @@
+
+---
+
+**NOTE:**
+
+This sample project uses Heroku's free-tier to host the chat bot. [Heroku's pricing change](https://blog.heroku.com/next-chapter) will be removing their free-tier and there are no plans to move this sample chat bot project to a paid-tier. While this project can still be used, the project will **no longer be actively maintained**.
+
+---
+
 # messenger-chatbot
 A simple Facebook Messenger chat bot using Heroku + Firebase
 
